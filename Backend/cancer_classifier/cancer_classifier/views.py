@@ -68,3 +68,4 @@ def upload_image(request):
         }, status=200)
     
     return JsonResponse({'error': 'Invalid request method'}, status=400)
+

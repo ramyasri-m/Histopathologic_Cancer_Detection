@@ -163,6 +163,7 @@ function AboutPage() {
 
 function UploadForm() {
     const [file, setFile] = useState(null);
+
     const [prediction, setPrediction] = useState(null);
     const [confidence, setConfidence] = useState(null);
     const [loading, setLoading] = useState(false);
@@ -171,6 +172,7 @@ function UploadForm() {
     const handleFileChange = (e) => {
         const selectedFile = e.target.files[0];
         setFile(selectedFile);
+
     };
 
     const handleSubmit = async (e) => {
@@ -218,6 +220,7 @@ function UploadForm() {
                             encType="multipart/form-data"
                         >
                             <Grid container spacing={2}>
+
                                 <Grid item xs={12}>
                                     <input
                                         accept="image/*"
