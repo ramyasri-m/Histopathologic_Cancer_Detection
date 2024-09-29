@@ -5,7 +5,6 @@ import {
     Grid,
     Card,
     CardContent,
-    CardMedia,
     Button,
     AppBar,
     Toolbar,
@@ -164,7 +163,6 @@ function AboutPage() {
 
 function UploadForm() {
     const [file, setFile] = useState(null);
-    const [previewUrl, setPreviewUrl] = useState(null);
     const [prediction, setPrediction] = useState(null);
     const [confidence, setConfidence] = useState(null);
     const [loading, setLoading] = useState(false);
@@ -173,10 +171,6 @@ function UploadForm() {
     const handleFileChange = (e) => {
         const selectedFile = e.target.files[0];
         setFile(selectedFile);
-
-        // Create a preview URL
-        const objectUrl = URL.createObjectURL(selectedFile);
-        setPreviewUrl(objectUrl);
     };
 
     const handleSubmit = async (e) => {
@@ -224,17 +218,6 @@ function UploadForm() {
                             encType="multipart/form-data"
                         >
                             <Grid container spacing={2}>
-                                {previewUrl && (
-                                    <Grid item xs={12}>
-                                        <CardMedia
-                                            component="img"
-                                            height="300"
-                                            image={previewUrl}
-                                            alt="Preview"
-                                            style={{ objectFit: "contain" }}
-                                        />
-                                    </Grid>
-                                )}
                                 <Grid item xs={12}>
                                     <input
                                         accept="image/*"
